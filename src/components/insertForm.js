@@ -15,7 +15,7 @@ const InsertForm = ({ onInsert }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        onSubmit={inputValue}
+        value={inputValue}
         onChange={(event) => {
           setInputValue(event.target.value);
         }}
