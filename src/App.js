@@ -1,10 +1,16 @@
 import "./App.css";
+import React from "react";
+import InsertForm from "./components/insertForm";
 
 function App() {
   return (
-    <>
-      <h1>hello this is going to be a todo app</h1>
-    </>
+    <div className="App">
+      <InsertForm
+        onInsert={(value) => {
+          console.log(value);
+        }}
+      />
+    </div>
   );
 }
 
