@@ -18,4 +18,4 @@ const ListView = ({ todoList }) => {
   );
 };
 
-export default ListView();
+export default ListView;

@@ -15,6 +15,9 @@ const InsertForm = ({ onInsert }) => {
     },
     [onInsert, inputValue]
   );
+
+  //7주차 16종합실습 /유용한 팁들 (필수)  실습2 리스트 표현하기 하는데 등록하고
+  //완료, 삭제 버튼이랑 등록한 자료들이 안나옴.
   return (
     <form onSubmit={handleSubmit}>
       <input
