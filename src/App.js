@@ -14,18 +14,38 @@ function App() {
       //생성한 뒤 값을 복사해와야 함.
       newTodoList.push({
         key: new Date().getTime(), // JSX에서 Array의 값을 표현할 때 각 요소를 구분하기 위한 값
-        value: value, // onInsert로부터 전달받은 값,
+        value, // onInsert로부터 전달받은 값,
         isCompleted: false, // 완료 처리를 위한 flag
       });
       return newTodoList;
     });
+
+    const handleComplete = (index) => {
+      setTodoList((current) => {
+        const newTodoList = [...current];
+        newTodoList[index].isCompleted = true;
+        return newTodoList;
+      });
+    };
+
+    const handleRemove = (index) => {
+      setTodoList((current) => {
+        const newTodoList = [...current];
+        newTodoList.splice(index, 1);
+        return newTodoList;
+      });
+    };
+    return (
+      <div className="App">
+        <ListView
+          todoList={todoList}
+          onComplete={handleComplete}
+          onRemove={handleRemove}
+        />
+        <InsertForm onInsert={handleInsert} />
+      </div>
+    );
   };
-  return (
-    <div className="App">
-      <ListView todoList={todoList} />
-      <InsertForm onInsert={handleInsert} />
-    </div>
-  );
 }
 
 export default App;

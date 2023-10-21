@@ -8,6 +8,12 @@ const InsertForm = ({ onInsert }) => {
     (event) => {
       event.preventDefault();
       if (typeof onInsert === "function" && inputValue) {
+        //해당 코드는 onInsert라는 함수가 부모 컴포넌트로부터 props로 전달된 후 해당 함수가
+        //실제로 함수, 즉 function이 맞는 지를 확인하는 코드임.
+        //사실 이같은 검사는 기능적으로 반드시 필요한 부분은 아니지만 코드의 안정성의 측면에서
+        // 작성해주는 것이 좋음.
+        //이를 통해 개발자의 실수 등 다른 타입의 값이 전달되었을 경우
+        //에러를 발생시켜 예기치 않은 상황에서 에러를 방지가능.
         onInsert(inputValue); //props로부터 전달받은 onInsert함수를 호출. 그때 전달받는 값은
         //inputValue로 전달받음.
       }
@@ -16,8 +22,6 @@ const InsertForm = ({ onInsert }) => {
     [onInsert, inputValue]
   );
 
-  //7주차 16종합실습 /유용한 팁들 (필수)  실습2 리스트 표현하기 하는데 등록하고
-  //완료, 삭제 버튼이랑 등록한 자료들이 안나옴.
   return (
     <form onSubmit={handleSubmit}>
       <input
