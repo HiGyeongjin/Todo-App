@@ -20,6 +20,8 @@ function App() {
       return newTodoList;
     });
 
+    //엘리스 7주차 16 종합실습 실습 4 css로 하면 됨.
+
     const handleComplete = (index) => {
       setTodoList((current) => {
         const newTodoList = [...current];
