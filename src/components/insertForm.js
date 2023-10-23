@@ -23,7 +23,19 @@ const InsertForm = ({ onInsert }) => {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        backgroundColor: "#ffffff",
+        borderRadius: 16,
+        marginBottom: 16,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      {/* input 부터 스타일 지정하기  */}
+      {/* //엘리스 7주차 16 종합실습 실습 4 css로 하면 됨. */}
       <input
         value={inputValue}
         onChange={(event) => {

@@ -34,6 +34,7 @@ function App() {
   // };
 
   //엘리스 7주차 16 종합실습 실습 4 css로 하면 됨.
+  //InsertForm 에서 input 확인해서 css수정하기
 
   const handleComplete = (index) => {
     setTodoList((current) => {
