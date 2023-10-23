@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import InsertForm from "./components/insertForm";
+import InsertForm from "./components/InsertForm";
 import ListView from "./components/listView";
 
 function App() {
@@ -19,35 +19,47 @@ function App() {
       });
       return newTodoList;
     });
-
-    //엘리스 7주차 16 종합실습 실습 4 css로 하면 됨.
-
-    const handleComplete = (index) => {
-      setTodoList((current) => {
-        const newTodoList = [...current];
-        newTodoList[index].isCompleted = true;
-        return newTodoList;
-      });
-    };
-
-    const handleRemove = (index) => {
-      setTodoList((current) => {
-        const newTodoList = [...current];
-        newTodoList.splice(index, 1);
-        return newTodoList;
-      });
-    };
-    return (
-      <div className="App">
-        <ListView
-          todoList={todoList}
-          onComplete={handleComplete}
-          onRemove={handleRemove}
-        />
-        <InsertForm onInsert={handleInsert} />
-      </div>
-    );
   };
+  //윗 코드와 바로 아래 코드가 같음.
+  // const handleInsert = (value) => {
+  //   setTodoList((current) => {
+  //     const newList = [...current];
+  //     newList.push({
+  //       key: new Date().getTime(),
+  //       value,
+  //       isCompleted: false,
+  //     });
+  //     return newList;
+  //   });
+  // };
+
+  //엘리스 7주차 16 종합실습 실습 4 css로 하면 됨.
+
+  const handleComplete = (index) => {
+    setTodoList((current) => {
+      const newTodoList = [...current];
+      newTodoList[index].isCompleted = true;
+      return newTodoList;
+    });
+  };
+
+  const handleRemove = (index) => {
+    setTodoList((current) => {
+      const newTodoList = [...current];
+      newTodoList.splice(index, 1);
+      return newTodoList;
+    });
+  };
+  return (
+    <div className="App">
+      <ListView
+        todoList={todoList}
+        onComplete={handleComplete}
+        onRemove={handleRemove}
+      />
+      <InsertForm onInsert={handleInsert} />
+    </div>
+  );
 }
 
 export default App;
